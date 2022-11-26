@@ -27,7 +27,7 @@
 }
 
 .pFooter {
-  font-family: 'Nanum Pen Script', cursive;
+  font-family: "Nanum Pen Script", cursive;
   font-size: 26px;
   text-align: center;
   display: flex;
@@ -37,7 +37,7 @@
 
 .title {
   /* font-family: 'Fuzzy Bubbles', cursive; */
-  font-family: 'Nanum Pen Script', cursive;
+  font-family: "Nanum Pen Script", cursive;
   font-weight: 400;
   margin: 0;
   line-height: 1.15;
@@ -127,6 +127,39 @@
   justify-content: center;
 }
 
+.content {
+  width: 100%;
+  height: 1250px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.colorBlock {
+  height: 80px;
+  width: 80px;
+  border-radius: 5px;
+  margin: 5px;
+  transition: 0.2s;
+}
+
+.colorBlock:hover {
+  transform: scale(1.15);
+  transition: 0.2s;
+}
+
+.text {
+  color: silver;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 8px;
+  text-align: center;
+  margin: 0;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
@@ -135,5 +168,4 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  
 }

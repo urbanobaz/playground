@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import d3, { csv, scaleBand, scaleLinear, max } from 'd3';
+import { csv, scaleBand, scaleLinear, max } from 'd3';
 
 const D3 = () => {
     const [ data, setData ] = useState();
-    const getWindowWidth = () => {
-        const { innerWidth } = window;
-        return innerWidth;
-    }
-    const [ windowWidth, setWindowWidth ] = useState(getWindowWidth());
     const width = 1200;
     const height = 600;
     const margin = { top: 30, right: 10, bottom: 30, left: 30 };
     const innerHeight = (height - margin.top - margin.bottom);
     const innerWidth = (width - margin.right - margin.left);
+    var getWindowWidth = () => {
+        const { innerWidth } = window;
+        return innerWidth;
+    };
+    const [ windowWidth, setWindowWidth ] = useState(getWindowWidth());
 
     useEffect(() => {
         const row = d => {
@@ -25,7 +25,7 @@ const D3 = () => {
         });
         const handleWindowResize = () => {
             setWindowWidth(getWindowWidth())
-        }
+        };
 
         window.addEventListener('resize', handleWindowResize);
     }, []);

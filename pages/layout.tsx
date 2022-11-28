@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
 type Props = {
@@ -16,6 +17,11 @@ const Layout: React.FC<Props> = ({ children }) => {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet" />
       </Head>
+
+      <nav className={styles.nav}>
+        <Link href='/' className={styles.link}>Home</Link>
+        <Link href='/shenzhen' className={styles.link}>Shenzhen</Link>
+      </nav>
 
       <main className={styles.main}>
         {children}

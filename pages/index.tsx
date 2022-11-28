@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
 const Home: React.FC = () => {
@@ -7,10 +8,10 @@ const Home: React.FC = () => {
       </h1>
 
       <div className={styles.grid}>
-        <a href="https://nextjs.org/docs" className={styles.card}>
+        <Link href="/shenzhen" className={styles.card}>
           <h2>See more projects</h2>
           <p>More projects description.</p>
-        </a>
+        </Link>
 
         <a href="https://nextjs.org/learn" className={styles.card}>
           <h2>Technologies used</h2>

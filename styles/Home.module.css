@@ -4,7 +4,6 @@
 
 .main {
   min-height: calc(100vh - 80px);
-  padding: 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -14,7 +13,7 @@
 
 .footer {
   display: flex;
-  height: 80px;
+  height: 50px;
   flex: 1;
   border-top: 1px solid #eaeaea;
   justify-content: center;
@@ -27,7 +26,7 @@
 }
 
 .pFooter {
-  font-family: 'Nanum Pen Script', cursive;
+  font-family: "Nanum Pen Script", cursive;
   font-size: 26px;
   text-align: center;
   display: flex;
@@ -36,8 +35,7 @@
 }
 
 .title {
-  /* font-family: 'Fuzzy Bubbles', cursive; */
-  font-family: 'Nanum Pen Script', cursive;
+  font-family: "Nanum Pen Script", cursive;
   font-weight: 400;
   margin: 0;
   line-height: 1.15;
@@ -120,6 +118,18 @@
   margin: 0 5px;
 }
 
+.nav {
+  display: flex;
+  height: 30px;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 15px;
+}
+
 .footerImageDiv {
   height: 100%;
   display: flex;
@@ -135,5 +145,4 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  
 }

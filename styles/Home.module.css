@@ -3,35 +3,12 @@
 }
 
 .main {
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 120px);
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.footer {
-  display: flex;
-  height: 50px;
-  flex: 1;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-}
-
-.footerWrapper {
-  display: flex;
-  height: 100%;
-}
-
-.pFooter {
-  font-family: "Nanum Pen Script", cursive;
-  font-size: 26px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .title {
@@ -113,28 +90,38 @@
   height: 50px;
 }
 
-.imageFooter {
-  height: 25px;
-  margin: 0 5px;
-}
-
-.nav {
+.content {
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
   display: flex;
-  height: 30px;
-}
-
-.link {
-  display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-right: 15px;
 }
 
-.footerImageDiv {
+.colorBlock {
+  height: 80px;
+  width: 80px;
+  border-radius: 5px;
+  margin: 5px;
+  transition: 0.2s;
+}
+
+.colorBlock:hover {
+  transform: scale(1.15);
+  transition: 0.2s;
+}
+
+.text {
+  color: silver;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 8px;
+  text-align: center;
+  margin: 0;
 }
 
 @media (max-width: 600px) {

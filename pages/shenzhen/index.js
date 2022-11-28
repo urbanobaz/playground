@@ -4,7 +4,7 @@ import { csv, scaleBand, scaleLinear, max } from "d3";
 import styles from "./Shenzhen.module.scss";
 
 const D3 = () => {
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth | 0);
   const [data, setData] = useState();
   const width = 1200;
   const height = 600;

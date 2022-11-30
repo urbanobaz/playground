@@ -7,6 +7,7 @@ const Navbar = () => {
       <Link href='/' className={styles.link}>Home</Link>
       <Link href='/shenzhen' className={styles.link}>Shenzhen</Link>
       <Link href='/colors' className={styles.link}>Colors</Link>
+      <Link href='/daysOfOurLives' className={styles.link}>Days</Link>
     </nav>
   )
     

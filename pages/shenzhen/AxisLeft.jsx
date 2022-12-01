@@ -1,20 +1,26 @@
-import styles from './Shenzhen.module.scss';
-import { scaleLinear } from 'd3';
+import d3, { scaleLinear, max } from "d3";
 
-const AxisLeft = (height, innerHeight, width) => {
-    var yScale = scaleLinear().domain([0, 12000000]).range([0, 540]);
+const AxisLeft = (innerHeight, width, data) => {
+  //   const data = useData();
+  //   window.console.log(data);
+  const yScale = scaleLinear()
+    // .domain([0, max(data, (d) => d.Population)])
+    .domain([0, max(data, (d) => d.Population)])
+    .range([0, innerHeight]);
 
-    window.console.log(yScale.ticks());
-    const ticks = yScale.ticks();
+  const ticks = yScale.ticks();
 
-    return (ticks.map((tickValue) => (
-        <g key={tickValue} transform={`translate(-30,${(height - yScale(tickValue))})`}>
-            <text style={{ textAnchor: "end", fill: "grey" }} dx={-20} dy=".35em">
-                {tickValue}
-            </text>
-            <line x2={width} stroke="lightgrey" />
-        </g>
-    )));
-}
+  return ticks.map((tickValue) => (
+    <g
+      key={tickValue}
+      transform={`translate(-30,${innerHeight - yScale(tickValue)})`}
+    >
+      <text style={{ textAnchor: "end", fill: "grey" }} dx={-20} dy=".35em">
+        {tickValue}
+      </text>
+      <line x2={width} stroke="lightgrey" />
+    </g>
+  ));
+};
 
 export default AxisLeft;

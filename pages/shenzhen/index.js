@@ -1,9 +1,27 @@
 import { useEffect, useState } from "react";
-import { scaleBand, scaleLinear, max } from 'd3';
-import styles from './Shenzhen.module.scss';
-import { useData } from './useData';
-import AxisBottom from './AxisBottom';
-import AxisLeft from './AxisLeft';
+import { scaleBand, scaleLinear, max, csv } from "d3";
+import styles from "./Shenzhen.module.scss";
+import AxisBottom from "./AxisBottom";
+
+const useData = () => {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const row = (d) => {
+      d.Population = parseInt(d.Population);
+      return d;
+    };
+    csv(
+      "https://gist.githubusercontent.com/urbanobaz/01f2b477fa3e0df8d03c41cc7e47d489/raw/2fd5dd2e55ff028ae02d45140099734c9f50edf2/shenzhenPopulation.csv",
+      row
+    ).then((data) => {
+      window.console.log("Fetching data...");
+      setData(data.reverse());
+    });
+  }, []);
+
+  return data;
+};
 
 const D3 = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth | 0);
@@ -20,16 +38,14 @@ const D3 = () => {
     };
 
     window.addEventListener("resize", handleWindowSizeChange);
-  }, []);
+  }, [data]);
 
   if (!data) {
     return <pre>Loading...</pre>;
   }
 
-  const maxY = max(data, point => point.Population);
-
   const yScale = scaleLinear()
-    .domain([0, maxY])
+    .domain([0, max(data, (data) => data.Population)])
     .range([0, innerHeight]);
 
   const xScale = scaleBand()
@@ -38,8 +54,6 @@ const D3 = () => {
 
   const yTicks = yScale.ticks();
   const xDomains = xScale.domain();
-//   window.console.log(yTicks);
-//   window.console.log(yScale.ticks());
 
   return (
     <>
@@ -59,7 +73,21 @@ const D3 = () => {
           transform={`translate(50,0)`}
         >
           <g transform={`translate(${margin.left},${-margin.top})`}>
-            <AxisLeft height={height} innerHeight={innerHeight} width={width} />
+            {yTicks.map((tickValue) => (
+              <g
+                key={tickValue}
+                transform={`translate(-30,${height - yScale(tickValue)})`}
+              >
+                <text
+                  style={{ textAnchor: "end", fill: "grey" }}
+                  dx={-20}
+                  dy=".35em"
+                >
+                  {tickValue}
+                </text>
+                <line x2={width} stroke="lightgrey" />
+              </g>
+            ))}
             <AxisBottom xDomains={xDomains} height={height} xScale={xScale} />
             {data.map((d) => (
               <rect

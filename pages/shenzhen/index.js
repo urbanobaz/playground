@@ -64,7 +64,7 @@ const D3 = () => {
                   dx={-20}
                   dy=".35em"
                 >
-                  {tickValue}
+                  {tickValue.toLocaleString('en-US')}
                 </text>
                 <line x2={width} stroke="lightgrey" />
               </g>

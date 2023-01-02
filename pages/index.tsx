@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
 const Home: React.FC = () => {
   return (<>
       <h1 className={styles.title}>
-        Frontend Playground <img src="/favicon.ico" className={styles.image} />
+        Frontend Playground <Image src="/favicon.ico" className={styles.image} alt="title picture" width="50" height="50" />
       </h1>
 
       <div className={styles.grid}>

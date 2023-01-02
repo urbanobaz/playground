@@ -5,7 +5,7 @@ import AxisBottom from "./AxisBottom";
 import { useData } from "./useData";
 
 const D3 = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth | 0);
+  const [windowWidth, setWindowWidth] = useState(0);
   const data = useData();
   const width = 1200;
   const height = 600;

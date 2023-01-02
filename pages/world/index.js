@@ -34,7 +34,7 @@ const World = () => {
             <p>World</p>
             <svg height={height} width={width}>
                 {data.features.map(feature => (
-                    <path d={path(feature)} fill="white" />
+                    <path d={path(feature)} fill="white" key={feature} />
                 ))}
             </svg>
         </div>

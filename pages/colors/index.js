@@ -9,7 +9,6 @@ const Colors = () => {
     csv(
       "https://gist.githubusercontent.com/urbanobaz/f693d8d73a18f62e269a96b0edd14cbf/raw/96c0846c0e0044c5bedb1b93bb2dd26d5ff44244/colors.csv"
     ).then(setData);
-    window.console.log(data);
   }, []);
 
   return (

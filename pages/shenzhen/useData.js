@@ -21,3 +21,5 @@ export const useData = () => {
 
   return data;
 };
+
+export default useData;
